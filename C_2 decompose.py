@@ -39,6 +39,20 @@ import itertools
 #         N = a.dot(M).dot(a.conj().T)
 #         return Is_pauli(N)
 
+#Generate a set [I, X, Y, Z]
+
+#Generate n-qubit pauli group [I, X, Y, Z]
+# def Generate_pauli(n):
+#     a = q.pauli_group(n)
+#     next(a)
+#     P = []
+#     for i in range(4**n-1):
+#         b = copy.deepcopy(next(a)).as_unitary()
+#         P.append(b)
+#         P.append(-b)
+#     # return P
+
+#swap M(q1, q2) to M(q2, q1). For 4x4 matrix only.
 def Pauli_mat():
     a = q.pauli_group(1)
     P = []
@@ -47,35 +61,32 @@ def Pauli_mat():
         P.append(b)
     return P
 
-def Generate_pauli(n):
-    a = q.pauli_group(n)
-    next(a)
-    P = []
-    for i in range(4**n-1):
-        b = copy.deepcopy(next(a)).as_unitary()
-        P.append(b)
-        P.append(-b)
-    return P
-
-def swap(M): #for 4x4 matrix only
+def swap(M):
     SWAP = q.swap(2, 0, 1).as_unitary()
     return np.dot(np.dot(SWAP, M), SWAP)
 
+'''
+Functions "Gates_multi" and "Is_New" act on the following matrix object:
+M = [ [decompose series], [matrix form] ]
+"Decompose series" is in the form [generator1, qn], [generator2, qn]......
+'''
+#Matrix multiplication
 def Gates_multi(M1, M2):
     a = M1[0] + M2[0]
     b = np.dot(M1[1], M2[1])
     return [a, b]
 
+#Determine whether a matrix M is new to a set M_array.
 def Is_New(M_array, M):
     for n in range(len(M_array)):
-        if np.allclose(M_array[n][1], M[1]):
+        if np.allclose(np.absolute(np.trace(np.dot(M_array[n][1].conj().T, M[1]))), 4):
             return False
         else:
             continue
     return True
 
-global P_n
-P_n = Generate_pauli(2)
+# global P_n
+# P_n = Generate_pauli(2)
 # global Pauli
 Pauli = Pauli_mat()
 global I
@@ -101,20 +112,20 @@ X_CROT = np.dot(np.kron(Z_2, X_2), CNOT)
 Z_CROT = np.dot(np.kron(Z_2, I), NCNOT)
 CROT = np.dot(np.kron(Z_2, I), CNOT)
 
-#generate possible Zv pulses set
+#generate possible Zv pulses set Zv_q1 and Zv_q2
 Zv = [Zv_2]
 for i in range(1, 4):
     Zv.append(np.dot(Zv[i-1], Zv_2))
 
-Zv_q1 = [ [[['Zv(pi/2)'], 1]      ],
-          [[['Zv(pi)'], 1]        ],
-          [[['Zv(3pi/2)'], 1]     ],
-          [[['Zv(2pi)'], 1]       ] ]
+Zv_q1 = [ [[['Zv(pi/2)', 1]]      ],
+          [[['Zv(pi)', 1]]        ],
+          [[['Zv(3pi/2)', 1]]     ],
+          [[['Zv(2pi)', 1]]       ] ]
 
-Zv_q2 = [ [[['Zv(pi/2)'], 2]      ],
-          [[['Zv(pi)'], 2]        ],
-          [[['Zv(3pi/2)'], 2]     ],
-          [[['Zv(2pi)'], 2]       ] ]
+Zv_q2 = [ [[['Zv(pi/2)', 2]]      ],
+          [[['Zv(pi)', 2]]        ],
+          [[['Zv(3pi/2)', 2]]     ],
+          [[['Zv(2pi)', 2]]       ] ]
 
 for i in range(4):
     Zv_q1[i].append(np.kron(Zv[i], I))
@@ -136,6 +147,10 @@ for i in range(8):
         for j in range(4):
             Prim_Zv.append(Gates_multi(Prim[i], Zv_q1[j]))
 
+'''
+Computational searching all possible clifford elements.
+'''
+
 Cliff_2 = []
 L = []
 c = 0
@@ -145,18 +160,35 @@ for i, j in itertools.product(range(4), range(4)):
     if Is_New(Cliff_2, a):
         Cliff_2.append(a)
         c += 1
+    else:
+        continue
 L.append(c)
 c = 0
 
-p = 0
-for i in range(len(Cliff_2)):
-    for j in range(len(Prim_Zv)):
-        a = Gates_multi(Cliff_2[i], Prim_Zv[j])
-        if Is_New(Cliff_2, a):
-            Cliff_2.append(a)
-            c += 1
-L.append(c)
+l = 1
+d = 0
+while l<=2:
+    if l>1:
+        d += L[l-2]
+    for i in range(d, len(Cliff_2)):
+        for j in range(len(Prim_Zv)):
+            a = Gates_multi(Cliff_2[i], Prim_Zv[j])
+            if Is_New(Cliff_2, a):
+                Cliff_2.append(a)
+                c += 1
+            else:
+                continue
+    L.append(c)
+    c = 0
+    l += 1
 
+print(L, "\n")
+# print(np.absolute(np.trace(np.dot(Cliff_2[16][1].conj().T, Cliff_2[528][1]))), "\n")
+# print(np.allclose(np.absolute(np.trace(np.dot(Cliff_2[16][1].conj().T, Cliff_2[528][1]))), 4), "\n")
+# print(Is_New(Cliff_2, Cliff_2[528]), "\n")
+# print(np.absolute(np.trace(np.dot(Cliff_2[20][1].conj().T, 1j*Cliff_2[20][1]))), "\n")
+# print(Cliff_2[400][0], "\n\n", Cliff_2[400][1])
+# print(Cliff_2[16][1], "\n\n", Cliff_2[528][1])
 
 
 
