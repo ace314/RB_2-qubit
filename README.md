@@ -11,6 +11,6 @@ To extract the information about C_2 gates in terms of the generators, the outpu
 
 [2] About "generator.py"
 
-"generator.py" is a simulation file to construct the generators in Fig. 4 in the original paper by the Hamiltonian given in the supplemental information.
+"generator.py" is a simulation file to construct the generators in Fig. 4 in the original paper by the Hamiltonian given in the supplemental information. Here there is only crosstalk error without any noise model introduced.
 
 Now the output is the fedilities of 4 generators (X/2, X/2+CROT, Z-CROT, CROT), comparing to the ideal cases.
