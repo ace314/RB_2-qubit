@@ -4,7 +4,7 @@
 
 "C_2 decompose.py" is a simple python file to decompose two qubit clifford gates by generators given in arXiv:1805.05027v3 (Hereafter refered to as "original paper".
 
-Now the output in "C_2 decompose.py" is temporarily an array, which contains number of C_2 gates made up by 0,1,2....l primitive gates, corresponding to the "Extended Data Table I" in the original paper. One can change the variable "l" in line 169 (l=1 by default).
+Now the output in "C_2 decompose.py" is temporarily an array, which contains number of C_2 gates made up by 0,1,2....l (lowercase "L") primitive gates, corresponding to the "Extended Data Table I" in the original paper. One can change the variable "l" (lowercase "L") in line 169 (l=1 by default).
 
 To extract the information about C_2 gates in terms of the generators, the output form should be modified as ones need.
 
