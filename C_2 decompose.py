@@ -80,6 +80,7 @@ def Gates_multi(M1, M2):
 def Is_New(M_array, M):
     for n in range(len(M_array)):
         if np.allclose(np.absolute(np.trace(np.dot(M_array[n][1].conj().T, M[1]))), 4):
+            print(M_array[n][0], "\n", M[0], "\n\n")
             return False
         else:
             continue
@@ -103,11 +104,11 @@ Z = Pauli[3]
 Z_2 = (1/np.sqrt(2))*np.array([[1+1j, 0+0j], [0+0j, 1-1j]])
 CNOT = q.cnot(2, 0, 1).as_unitary()
 NCNOT = np.dot(np.dot(np.kron(X, I), CNOT), np.kron(X, I))
-Zv_2 = (1/np.sqrt(2))*np.array([[1+1j, 0+0j], [0+0j, 1-1j]])
+Zv_2 = (1/np.sqrt(2))*np.array([[1-1j, 0+0j], [0+0j, 1+1j]])
 
 #primitive gates
 #error adds here
-X_2 = (1/np.sqrt(2))*np.array([[1+0j, 0+1j], [0+1j, 1+0j]])
+X_2 = (1/np.sqrt(2))*np.array([[1+0j, 0-1j], [0-1j, 1+0j]])
 X_CROT = np.dot(np.kron(Z_2, X_2), CNOT)
 Z_CROT = np.dot(np.kron(Z_2, I), NCNOT)
 CROT = np.dot(np.kron(Z_2, I), CNOT)
@@ -167,7 +168,7 @@ c = 0
 
 l = 1
 d = 0
-while l<=2:
+while l<=1:
     if l>1:
         d += L[l-2]
     for i in range(d, len(Cliff_2)):
@@ -187,7 +188,7 @@ print(L, "\n")
 # print(np.allclose(np.absolute(np.trace(np.dot(Cliff_2[16][1].conj().T, Cliff_2[528][1]))), 4), "\n")
 # print(Is_New(Cliff_2, Cliff_2[528]), "\n")
 # print(np.absolute(np.trace(np.dot(Cliff_2[20][1].conj().T, 1j*Cliff_2[20][1]))), "\n")
-# print(Cliff_2[400][0], "\n\n", Cliff_2[400][1])
+# print(Cliff_2[199][0], "\n\n", Cliff_2[199][1])
 # print(Cliff_2[16][1], "\n\n", Cliff_2[528][1])
 
 
