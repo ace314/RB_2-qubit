@@ -80,7 +80,7 @@ def Gates_multi(M1, M2):
 def Is_New(M_array, M):
     for n in range(len(M_array)):
         if np.allclose(np.absolute(np.trace(np.dot(M_array[n][1].conj().T, M[1]))), 4):
-            print(M_array[n][0], "\n", M[0], "\n\n")
+            # print(M_array[n][0], "\n", M[0], "\n\n")
             return False
         else:
             continue
