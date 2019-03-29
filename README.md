@@ -27,8 +27,15 @@ To extract the information about C_2 gates in terms of the generators, the outpu
 Now the output is the fedilities of 4 generators (X/2, X/2+CROT, Z-CROT, CROT), comparing to the ideal cases. For example, the output form is of the following:
 
 ```bash
+dt = T/100000
 F(X_2):  0.9950523449918148
 F(X_CROT):  0.9950524587591166
 F(Z_CROT):  0.9901292722503505
 F(CROT):  0.9901292722503505
+
+dt = T/50
+F(X_2):  0.9945902054775931
+F(X_CROT):  0.9950645845697599
+F(Z_CROT):  0.9896792799268357
+F(CROT):  0.9896792799268357
 ```
