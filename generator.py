@@ -46,9 +46,9 @@ def H_RWA2_1d(w, t):
                                     [                     0, 0,                       0, 0]] )
 
 def H_RWA2_1u(w, t):
-    return 1/2*2*np.pi*w*np.array( [[0,                      0, 0,                       0],
-                                    [0,                      0, 0, np.exp(1j*J*2*np.pi*t)],
-                                    [0,                      0, 0,                       0],
+    return 1/2*2*np.pi*w*np.array( [[0,                       0, 0,                       0],
+                                    [0,                       0, 0,  np.exp(1j*J*2*np.pi*t)],
+                                    [0,                       0, 0,                       0],
                                     [0, np.exp(-1j*J*2*np.pi*t), 0,                       0]] )
 
 def H_RWA_1d(w, t):

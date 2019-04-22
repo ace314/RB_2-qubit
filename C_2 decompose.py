@@ -1,6 +1,6 @@
 import numpy as np
-import qecc as q
-import copy
+# import qecc as q
+# import copy
 import itertools
 
 # def Generate_symp_basis(n):
@@ -53,16 +53,17 @@ import itertools
 #     # return P
 
 #swap M(q1, q2) to M(q2, q1). For 4x4 matrix only.
-def Pauli_mat():
-    a = q.pauli_group(1)
-    P = []
-    for i in range(4):
-        b = copy.deepcopy(next(a)).as_unitary()
-        P.append(b)
-    return P
+# def Pauli_mat():
+#     a = q.pauli_group(1)
+#     P = []
+#     for i in range(4):
+#         b = copy.deepcopy(next(a)).as_unitary()
+#         P.append(b)
+#     return P
 
 def swap(M):
-    SWAP = q.swap(2, 0, 1).as_unitary()
+    # SWAP = q.swap(2, 0, 1).as_unitary()
+    SWAP = np.array([[1, 0, 0, 0], [0, 0, 1, 0], [0, 1, 0, 0], [0, 0, 0, 1]])
     return np.dot(np.dot(SWAP, M), SWAP)
 
 '''
@@ -89,20 +90,20 @@ def Is_New(M_array, M):
 # global P_n
 # P_n = Generate_pauli(2)
 # global Pauli
-Pauli = Pauli_mat()
+# Pauli = Pauli_mat()
 global I
 global X
 global Y
 global Z
-I = Pauli[0]
-X = Pauli[1]
-Y = Pauli[2]
-Z = Pauli[3]
+I = np.identity(2)
+X = np.array([[0,   1], [1,  0]])
+Y = np.array([[0, -1j], [1j, 0]])
+Z = np.array([[1,   0], [0, -1]])
 # global Sym_set
 # Sym_set = Generate_symp_basis(2)
 
 Z_2 = (1/np.sqrt(2))*np.array([[1+1j, 0+0j], [0+0j, 1-1j]])
-CNOT = q.cnot(2, 0, 1).as_unitary()
+CNOT = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]])
 NCNOT = np.dot(np.dot(np.kron(X, I), CNOT), np.kron(X, I))
 Zv_2 = (1/np.sqrt(2))*np.array([[1-1j, 0+0j], [0+0j, 1+1j]])
 
