@@ -29,6 +29,12 @@ def Is_New(M_array, M):
             continue
     return True
 
+def Is_enough(L, num_array, c):
+    if c == num_array[L]:
+        return True
+    else:
+        return False
+
 
 global I
 global X
@@ -99,6 +105,7 @@ Cliff_2 = []
 Cliff_index = []
 L = []
 c = 0
+count = 0
 #Iterate first Zv's
 for i, j in itertools.product(range(4), range(4)):
     a = Gates_multi(Zv_q1[i], Zv_q2[j])
@@ -106,12 +113,15 @@ for i, j in itertools.product(range(4), range(4)):
         Cliff_2.append(a)
         Cliff_index.append(a[0])
         c += 1
+        count += 1
+        print(count)
     else:
         continue
 L.append(c)
 c = 0
 
-l = 3
+n_Cliff = [16, 384, 4176, 6912, 32]
+l = 4
 t = 1
 d = 0
 while t<=l:
@@ -124,13 +134,19 @@ while t<=l:
                 Cliff_2.append(a)
                 Cliff_index.append(a[0])
                 c += 1
-            else:
-                continue
+                count += 1
+                print(count)
+            if Is_enough(t, n_Cliff, c):
+                print("breaked!", c)
+                break
+        else:
+            continue
+        break
     L.append(c)
     c = 0
     t += 1
 
-with open('Cliff_indices.pkl', 'wb') as f:
+with open('Cliff_indices_test.pkl', 'wb') as f:
     pickle.dump(Cliff_index, f)
 
 print(L, "\n")
