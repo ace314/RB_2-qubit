@@ -12,10 +12,3 @@
 ['Zv(pi/2)', 2]        = 11
 ['Zv(pi)', 2]          = 12
 ['Zv(3pi/2)', 2]       = 13
-
-Import .pkl file using:
-
->>> import pickle
->>> with open('Cliff_indices.pkl', 'rb') as f:
-...   mynewlist = pickle.load(f)
-...

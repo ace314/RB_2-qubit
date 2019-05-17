@@ -99,8 +99,8 @@ print("F(X_CROT): ", Fidelity(X_CROT_exp, X_CROT))
 print("F(Z_CROT): ", Fidelity(Z_CROT_exp, Z_CROT))
 print("F(CROT): ", Fidelity(CROT_exp, CROT))
 
-print(X_2_exp, "\n")
-print(X_2)
+# print(X_CROT_exp, "\n")
+# print(X_CROT)
 
 '''
 Results:
