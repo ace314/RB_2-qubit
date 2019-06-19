@@ -51,6 +51,30 @@ def H_RWA2_1u(w, t):
                                     [0,                       0, 0,                       0],
                                     [0, np.exp(-1j*J*2*np.pi*t), 0,                       0]] )
 
+def H_RWA1_2d(w):
+    return 1/2*2*np.pi*w*np.array( [[0, 0, 0, 0],
+                                    [0, 0, 0, 0],
+                                    [0, 0, 0, 1],
+                                    [0, 0, 1, 0]])
+
+def H_RWA1_2u(w):
+    return 1/2*2*np.pi*w*np.array( [[0, 1, 0, 0],
+                                    [1, 0, 0, 0],
+                                    [0, 0, 0, 0],
+                                    [0, 0, 0, 0]])
+
+def H_RWA2_2d(w, t):
+    return 1/2*2*np.pi*w*np.array( [[                     0, np.exp(-1j*J*2*np.pi*t), 0, 0],
+                                    [np.exp(1j*J*2*np.pi*t),                       0, 0, 0],
+                                    [                     0,                       0, 0, 0],
+                                    [                     0,                       0, 0, 0]] )
+
+def H_RWA2_2u(w, t):
+    return 1/2*2*np.pi*w*np.array( [[0,                       0, 0,                       0],
+                                    [0,                       0, 0,  np.exp(1j*J*2*np.pi*t)],
+                                    [0,                       0, 0,                       0],
+                                    [0, np.exp(-1j*J*2*np.pi*t), 0,                       0]] )
+
 def H_RWA_1d(w, t):
     return H_RWA1_1d(w) + H_RWA2_1d(w, t)
 
