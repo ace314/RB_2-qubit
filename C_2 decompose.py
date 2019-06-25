@@ -46,7 +46,7 @@ Y = np.array([[0, -1j], [1j, 0]])
 Z = np.array([[1,   0], [0, -1]])
 
 
-Z_2 = (1/np.sqrt(2))*np.array([[1+1j, 0+0j], [0+0j, 1-1j]])
+Z_2 = (1/np.sqrt(2))*np.array([[1-1j, 0+0j], [0+0j, 1+1j]])
 CNOT = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]])
 NCNOT = np.dot(np.dot(np.kron(X, I), CNOT), np.kron(X, I))
 Zv_2 = (1/np.sqrt(2))*np.array([[1-1j, 0+0j], [0+0j, 1+1j]])
