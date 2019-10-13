@@ -122,6 +122,7 @@ def H_RWA_2d(w, t, noise_std = [0, 0, 0, 0]):
 def H_RWA_2u(w, t, noise_std = [0, 0, 0, 0]):
     return H_RWA1_2u(w) + H_RWA2_2u(w, t) + dH(noise_std[0], noise_std[1], noise_std[2], noise_std[3])
 
+
 def get_gates(prim_key = 0, delta = 50, T_pi_2 = 0, noise_std = [0, 0, 0, 0]):
     L = np.linspace(0, T_pi_2, delta)
     A = np.identity(4)
@@ -168,7 +169,10 @@ def get_gates(prim_key = 0, delta = 50, T_pi_2 = 0, noise_std = [0, 0, 0, 0]):
 #     print(fidelity(Prim_perfect[i], get_gates(prim_key=i, T_pi_2=T_pi_2, noise_std=[std_uu, std_ud, std_du, std_dd])))
 
 def error_initial_state(e1, e2, e3):
-    return np.array([[math.sqrt(1 - e1 * e1 - e2 * e2 - e3 * e3)], [math.sqrt(e1)], [math.sqrt(e2)], [math.sqrt(e3)]])
+    return np.array([[(1-e1-e2-e3), 0, 0, 0],
+                     [0, e1, 0, 0],
+                     [0, 0, e2, 0],
+                     [0, 0, 0, e3]])
 
 def Is_Inverse(A, B):
     if np.allclose(np.absolute(np.trace(np.dot(A, B))), 4):
@@ -216,22 +220,22 @@ def c_m(c1):
         if Is_Inverse(a, b):
             return get_nonperfect_unitary(data[k])
 
-def RB_single_seq(L, repetition=125, ini_error=[0, 0, 0], rd_error=0):
+def RB_single_seq(L, repetition=125, ini_error=[0, 0, 0], rd_error=[0, 0, 0]):
     s_re = repetition  # repeated times for each sequence
     initial = error_initial_state(ini_error[0], ini_error[1], ini_error[2])
     num_uu = 0
     list = random.choices(data, k=L)  # data 隨便可重複取m個
     for j in range(repetition):
-        seq_k = get_s(list) @ c_m(list)  # k_th
+        seq_k = c_m(list) @ get_s(list)  # k_th
 #############################################Readout##########################################################################
-        final_prob = np.square(np.abs(seq_k @ initial))
-        err = final_prob[0] * rd_error
-        final_prob[0] -= err
-        for k in range(1, 4): final_prob[k][0] += err / 3
-        uu_count = [1, 0, 0, 0]
-        a = random.choices(uu_count, weights=final_prob, k=1)
+        final_state = seq_k @ initial @ seq_k.conj().T
+        proj_measure = error_initial_state(rd_error[0], rd_error[1], rd_error[2])
+        final_prob = np.trace(proj_measure @ final_state)
+        print(final_prob)
+        uu_count = [1, 0]
+        a = random.choices(uu_count, weights=[final_prob, 1-final_prob], k=1)
         num_uu = num_uu + a[0]
-    return num_uu /repetition
+    return num_uu / repetition
 #############################################Readout##########################################################################
 
 
@@ -241,7 +245,6 @@ l2 = np.arange(20, 40, 2)
 l3 = np.arange(40, 65, 5)
 x = np.hstack((l1, l2, l3))
 
-I = np.identity(4)
 
 y = []
 yerr = []
@@ -251,21 +254,19 @@ K = 5  # choices of S sequence 相同長度 重複取k次不同seq(等同K_L參�
 s_re = 10  # repeated times for each sequence
 c = 0
 initial_error = [0, 0, 0]   #[e_ud, e_du, e_dd]
-readout_error = 0
+readout_error = [0, 0, 0]
 
 def RB_loop(L):
     return RB_single_seq(L, repetition=s_re, ini_error=initial_error, rd_error=readout_error)
 
 
 if __name__ == '__main__':
-    print("!")
     for m in x:
         a = [m]*K
         pool = mp.Pool()
         res = pool.map(RB_loop, a)  # RB rep)
         y.append(np.mean(res))
         yerr.append(np.std(res))
-        print(y)
     pool.close()
     pool.join()
 
