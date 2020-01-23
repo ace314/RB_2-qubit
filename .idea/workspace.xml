@@ -2,30 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d70837f3-f2df-469d-865e-32745c819d82" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2q_RB_simu_L.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/2q_RB_simu_L.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2q_RB_simu_y.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/2q_RB_simu_y.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2q_RB_simu_yerr.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/2q_RB_simu_yerr.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SRB_with_gaussian_noise.ipynb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SRB_with_gaussian_noise.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/1 (N=10, K=51, no errbar) ini_err=0.01, rdout_err=0.01)/2q_RB_simu_L.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/1 (N=10, K=51, no errbar) ini_err=0.01, rdout_err=0.01)/2q_RB_simu_y.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/2 (N=10, K=51) ini_err=0.01, rdout_err=0.01)/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/2 (N=10, K=51) ini_err=0.01, rdout_err=0.01)/2q_RB_simu_L.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/2 (N=10, K=51) ini_err=0.01, rdout_err=0.01)/2q_RB_simu_y.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/2 (N=10, K=51) ini_err=0.01, rdout_err=0.01)/2q_RB_simu_yerr.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/2 (N=10, K=51) ini_err=0.01, rdout_err=0.01)/parameters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/3 (N=10, K=51) ini_err=0.05, rdout_err=0.01)/2q_RB_simu_L.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/3 (N=10, K=51) ini_err=0.05, rdout_err=0.01)/2q_RB_simu_y.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/3 (N=10, K=51) ini_err=0.05, rdout_err=0.01)/2q_RB_simu_yerr.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/3 (N=10, K=51) ini_err=0.05, rdout_err=0.01)/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/3 (N=10, K=51) ini_err=0.05, rdout_err=0.01)/parameters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/4 (N=10, K=51) ini_err=0.01, rdout_err=0.05)/2q_RB_simu_L.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/4 (N=10, K=51) ini_err=0.01, rdout_err=0.05)/2q_RB_simu_y.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/4 (N=10, K=51) ini_err=0.01, rdout_err=0.05)/2q_RB_simu_yerr.pkl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/4 (N=10, K=51) ini_err=0.01, rdout_err=0.05)/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/4 (N=10, K=51) ini_err=0.01, rdout_err=0.05)/parameters.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/results/plot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/SRB_with_gaussian_noise(non-stochastic)-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/SRB_with_gaussian_noise(stochastic)-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/SRB_with_gaussian_noise(stochastic)-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2q_RB_simu_L.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2q_RB_simu_Probability_mean.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2q_RB_simu_Probability_std.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2q_RB_simu_y.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2q_RB_simu_yerr.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2qubit RB_new.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2qubit RB_old.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2qubit RB_w_noise.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_2 decompose demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/C_2 decompose.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliff2_unitary.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cliff_indices_4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inverse_of_prim.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prim.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prim_exp.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prim_perfect.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RB_pool.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SRB_with_gaussian_noise(non-stochastic).ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SRB_with_gaussian_noise(non-stochastic).py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SRB_with_gaussian_noise(stochastic).ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/find_inverse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finding_Tpi_2_via_prim_gate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/finding_Tpi_2_via_pulse.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index_conv.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/inverse_of_prim.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,15 +61,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/C_2 decompose demo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2880">
-              <caret line="183" column="15" selection-start-line="183" selection-start-column="15" selection-end-line="183" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="208">
@@ -76,10 +70,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SRB_with_gaussian_noise(non-stochastic).py">
+        <entry file="file://$PROJECT_DIR$/generator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="131" selection-start-line="131" selection-end-line="133" selection-end-column="85" />
+            <state relative-caret-position="-1712">
+              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Cliff2_pickle_generate.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="16" selection-start-column="16" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -87,7 +93,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/results/plot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
+            <state relative-caret-position="416">
               <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -438,11 +444,12 @@
       <workItem from="1567155434792" duration="597000" />
       <workItem from="1570956959416" duration="886000" />
       <workItem from="1570957872418" duration="2937000" />
+      <workItem from="1579786317990" duration="974000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102169000" />
+    <option name="totallyTimeSpent" value="103143000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -454,9 +461,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17158177" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17324094" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -467,7 +475,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4914712" weight="0.32104123" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4804772" weight="0.1778742" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.78272533" visible="true" weight="0.3045326" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.78272533" visible="true" weight="0.30368763" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5488197" side_tool="true" weight="0.42355606" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.45118025" weight="0.28611898" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
@@ -476,8 +484,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.83503056" visible="true" weight="0.21380697" />
-      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="5" sideWeight="0.16496944" side_tool="true" visible="true" weight="0.21380697" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.8333333" visible="true" weight="0.21375267" />
+      <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="5" sideWeight="0.16666667" side_tool="true" visible="true" weight="0.21375267" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -570,16 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gates_with_noise.py" />
     <entry file="file://$PROJECT_DIR$/2qubit RB_w_noise.ipynb">
       <provider selected="true" editor-type-id="jupyter-editor" />
@@ -589,13 +587,6 @@
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/random.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/C_2 decompose demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2880">
-          <caret line="183" column="15" selection-start-line="183" selection-start-column="15" selection-end-line="183" selection-end-column="15" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SRB_with_gaussian_noise.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -614,20 +605,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cliff2_pickle_generate.py">
+    <entry file="file://$PROJECT_DIR$/C_2 decompose demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="16" selection-start-column="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2880">
+          <caret line="183" column="15" selection-start-line="183" selection-start-column="15" selection-end-line="183" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -638,10 +619,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/results/plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cliff2_pickle_generate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SRB_with_gaussian_noise(non-stochastic).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
+        <state relative-caret-position="-1184">
           <caret line="131" selection-start-line="131" selection-end-line="133" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1712">
+          <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
