@@ -75,7 +75,7 @@ def H_RWA1_2u(w, p):
 
 def H_RWA2_2d(w, t, p):
     return 1/2*2*np.pi*w*np.array( [[                     0, np.exp(1j*(J*2*np.pi*t - p)), 0, 0],
-                                    [np.exp(-1j*(J*2*np.pi*t - p)),                       0, 0, 0],
+                                    [np.exp(-1j*(J*2*np.pi*t - p)),                     0, 0, 0],
                                     [                     0,                       0, 0, 0],
                                     [                     0,                       0, 0, 0]] )
 
@@ -103,12 +103,12 @@ U_rwa = np.identity(4)
 U_crosstalk = np.identity(4)
 U_crosstalk_p = np.identity(4)
 
-L = np.linspace(0, T_pi_2, 10001)
+L = np.linspace(0, T_pi_2, 1001)
 
 for t in L[1:]:
     # U_lab = np.dot(expm(-1j * H(B_ac(Ω, f_1d, t-L[1]/2, phi)) * L[1]), U_lab)
     # U_rwa = np.dot(expm(-1j * H_RWA_1d(Ω, t-(L[1]/2), phi) * L[1]), U_rwa)
-    U_crosstalk = np.dot(expm(-1j * H_RWA_2u(Ω, t - (L[1]/2), 0) * L[1]), U_crosstalk)
+    U_crosstalk = np.dot(expm(-1j * H_RWA_2d(Ω, t - (L[1]/2), 0) * L[1]), U_crosstalk)
     # U_crosstalk_p = np.dot(expm(-1j * H_RWA2_1d(Ω, t - (L[1]/2), phi) * L[1]), U_crosstalk_p)
 
 
@@ -116,4 +116,4 @@ for t in L[1:]:
 # print(Fidelity(M, U_lab))
 # print(U_rwa)
 print(U_crosstalk)
-print(U_crosstalk_p)
+# print(U_crosstalk_p)

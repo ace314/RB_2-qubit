@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d70837f3-f2df-469d-865e-32745c819d82" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generator analysis/crosstalk_error_compensate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generator analysis/phase_offset_compensate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/generator analysis/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Clifford decompose/arXiv 1805.05027/C_2 decompose.py" beforeDir="false" afterPath="$PROJECT_DIR$/Clifford decompose/arXiv 1805.05027/C_2 decompose.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SRB_2qubit/2q_RB_simu_L.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/SRB_2qubit/2q_RB_simu_L.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SRB_2qubit/2q_RB_simu_y.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/SRB_2qubit/2q_RB_simu_y.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(stochastic).py" beforeDir="false" afterPath="$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(stochastic).py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator analysis/phase_offset_compensate.py" beforeDir="false" afterPath="$PROJECT_DIR$/generator analysis/phase_offset_compensate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plot/plot.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/plot/plot.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +46,44 @@
     <favorites_list name="RB_2-qubit" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(stochastic).py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="26" selection-start-line="26" selection-end-line="29" selection-end-column="10" />
+              <folding>
+                <element signature="e#38#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/generator analysis/phase_offset_compensate.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="157">
+              <caret line="298" column="5" selection-start-line="298" selection-start-column="5" selection-end-line="298" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1168">
+              <caret line="77" column="87" selection-start-line="77" selection-start-column="87" selection-end-line="77" selection-end-column="87" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -88,10 +126,11 @@
         <option value="$PROJECT_DIR$/generator analysis/Lab_frame analysis.py" />
         <option value="$PROJECT_DIR$/generator analysis/generator.py" />
         <option value="$PROJECT_DIR$/generator analysis/crosstalk_error_compensate.py" />
-        <option value="$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py" />
-        <option value="$PROJECT_DIR$/generator analysis/phase_offset_compensate.py" />
         <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/Clifford decompose/arXiv 1805.05027/C_2 decompose.py" />
+        <option value="$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py" />
         <option value="$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(stochastic).py" />
+        <option value="$PROJECT_DIR$/generator analysis/phase_offset_compensate.py" />
       </list>
     </option>
   </component>
@@ -251,6 +290,9 @@
       <module name="2-qubit" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SRB_2qubit" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -350,8 +392,8 @@
       <list>
         <item itemvalue="Python.phase_offset_compensate" />
         <item itemvalue="Python.SRB_with_gaussian_noise(stochastic)" />
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.Lab_frame_analysis" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.Lab_frame analysis" />
       </list>
     </recent_temporary>
@@ -441,11 +483,19 @@
       <workItem from="1592851518160" duration="2748000" />
       <workItem from="1592909190730" duration="598000" />
       <workItem from="1593174059759" duration="13220000" />
+      <workItem from="1593482605788" duration="6267000" />
+      <workItem from="1594628948169" duration="9685000" />
+      <workItem from="1594707866966" duration="2673000" />
+      <workItem from="1594797515675" duration="3180000" />
+      <workItem from="1595134891188" duration="612000" />
+      <workItem from="1595736272409" duration="2704000" />
+      <workItem from="1595756000113" duration="4715000" />
+      <workItem from="1595907142517" duration="3089000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="237991000" />
+    <option name="totallyTimeSpent" value="270916000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -457,9 +507,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12953092" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.113270774" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -470,16 +521,16 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4914712" weight="0.32104123" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4804772" weight="0.1778742" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.78272533" weight="0.30151844" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5488197" side_tool="true" weight="0.42355606" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.45118025" visible="true" weight="0.31453362" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.78272533" weight="0.34135976" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.23134328" side_tool="true" weight="0.49566162" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.76865673" visible="true" weight="0.39660057" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.8184569" visible="true" weight="0.2228145" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.8184569" visible="true" weight="0.17761394" />
       <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="5" sideWeight="0.18154311" side_tool="true" weight="0.54371" />
     </layout>
     <layout-to-restore>
@@ -593,16 +644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clifford decompose/arXiv 1805.05027/C_2 decompose.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generator analysis/finding_Tpi_2_via_pulse.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
@@ -676,39 +717,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1664">
-          <caret line="108" column="47" selection-start-line="108" selection-start-column="47" selection-end-line="108" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator analysis/crosstalk_error_compensate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1504">
-          <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/__future__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1818" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/RB/Lib/site-packages/numpy/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="174" column="12" lean-forward="true" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="12" />
-          <folding>
-            <element signature="e#3147#3211#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/RB/Lib/site-packages/numpy/core/numeric.py">
@@ -738,15 +749,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/generator analysis/crosstalk_error_compensate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="98" column="19" selection-start-line="98" selection-start-column="19" selection-end-line="98" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/RB/Lib/site-packages/numpy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="174" column="12" lean-forward="true" selection-start-line="174" selection-start-column="12" selection-end-line="174" selection-end-column="12" />
+          <folding>
+            <element signature="e#3147#3211#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Clifford decompose/Cliff2_pickle_generate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(stochastic)_backup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2592" />
+        <state>
+          <caret line="160" column="83" lean-forward="true" selection-start-line="160" selection-start-column="83" selection-end-line="160" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1168">
+          <caret line="77" column="87" selection-start-line="77" selection-start-column="87" selection-end-line="77" selection-end-column="87" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Clifford decompose/arXiv 1805.05027/C_2 decompose.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="824">
+          <caret line="91" column="18" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(stochastic).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-633">
-          <caret line="299" column="22" lean-forward="true" selection-start-line="299" selection-start-column="22" selection-end-line="299" selection-end-column="22" />
+        <state relative-caret-position="286">
+          <caret line="26" selection-start-line="26" selection-end-line="29" selection-end-column="10" />
           <folding>
             <element signature="e#38#56#0" expanded="true" />
           </folding>
@@ -755,8 +817,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generator analysis/phase_offset_compensate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="109" column="23" lean-forward="true" selection-start-line="109" selection-start-column="23" selection-end-line="109" selection-end-column="23" />
+        <state relative-caret-position="157">
+          <caret line="298" column="5" selection-start-line="298" selection-start-column="5" selection-end-line="298" selection-end-column="5" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

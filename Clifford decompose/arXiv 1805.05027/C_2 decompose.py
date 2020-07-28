@@ -51,43 +51,43 @@ CNOT = np.array([[1, 0, 0, 0], [0, 1, 0, 0], [0, 0, 0, 1], [0, 0, 1, 0]])
 NCNOT = np.dot(np.dot(np.kron(X, I), CNOT), np.kron(X, I))
 Zv_2 = (1/np.sqrt(2))*np.array([[1-1j, 0+0j], [0+0j, 1+1j]])
 
-#primitive gates
-#error adds here
+# primitive gates
+# error adds here
 X_2 = (1/np.sqrt(2))*np.array([[1+0j, 0-1j], [0-1j, 1+0j]])
 X_CROT = np.dot(np.kron(Z_2, X_2), CNOT)
 Z_CROT = np.dot(np.kron(Z_2, I), NCNOT)
 CROT = np.dot(np.kron(Z_2, I), CNOT)
 
-#generate possible Zv pulses set Zv_q1 and Zv_q2
+# generate possible Zv pulses set Zv_q1 and Zv_q2
 Zv = [Zv_2]
 for i in range(1, 4):
     Zv.append(np.dot(Zv[i-1], Zv_2))
 
-Zv_q1 = [ [[8]      ],                  #['Zv(pi/2)', 1]        = 8
-          [[9]      ],                  #['Zv(pi)', 1]          = 9
-          [[10]     ],                  #['Zv(3pi/2)', 1]       = 10
-          [[]       ] ]                 #['Zv(2pi)', 1]         = identity = none
+Zv_q1 = [ [[8]      ],                  # ['Zv(pi/2)', 1]        = 8
+          [[9]      ],                  # ['Zv(pi)', 1]          = 9
+          [[10]     ],                  # ['Zv(3pi/2)', 1]       = 10
+          [[]       ] ]                 # ['Zv(2pi)', 1]         = identity = none
 
-Zv_q2 = [ [[11]     ],                  #['Zv(pi/2)', 2]        = 11
-          [[12]     ],                  #['Zv(pi)', 2]          = 12
-          [[13]     ],                  #['Zv(3pi/2)', 2]       = 13
-          [[]       ] ]                 #['Zv(2pi)', 2]         = identity = none
+Zv_q2 = [ [[11]     ],                  # ['Zv(pi/2)', 2]        = 11
+          [[12]     ],                  # ['Zv(pi)', 2]          = 12
+          [[13]     ],                  # ['Zv(3pi/2)', 2]       = 13
+          [[]       ] ]                 # ['Zv(2pi)', 2]         = identity = none
 
 for i in range(4):
     Zv_q1[i].append(np.kron(Zv[i], I))
     Zv_q2[i].append(np.kron(I, Zv[i]))
 
-#generate all possible primitive gates set
-Prim = [ [[0], np.kron(I, X_2)],        #['X(pi/2)', 2]         = 0
-         [[1], swap(np.kron(I, X_2))],  #['X(pi/2)', 1]         = 1
-         [[2], X_CROT],                 #['X(pi/2)+CROT', 2]    = 2
-         [[3], swap(X_CROT)],           #['X(pi/2)+CROT', 1]    = 3
-         [[4], Z_CROT],                 #['Z(pi/2)+CROT', 2]    = 4
-         [[5], swap(Z_CROT)],           #['Z(pi/2)+CROT', 1]    = 5
-         [[6], CROT],                   #['CROT', 2]            = 6
-         [[7], swap(CROT)] ]            #['CROT', 1]            = 7
+# generate all possible primitive gates set
+Prim = [ [[0], np.kron(I, X_2)],        # ['X(pi/2)', 2]         = 0
+         [[1], swap(np.kron(I, X_2))],  # ['X(pi/2)', 1]         = 1
+         [[2], X_CROT],                 # ['X(pi/2)+CROT', 2]    = 2
+         [[3], swap(X_CROT)],           # ['X(pi/2)+CROT', 1]    = 3
+         [[4], Z_CROT],                 # ['Z(pi/2)+CROT', 2]    = 4
+         [[5], swap(Z_CROT)],           # ['Z(pi/2)+CROT', 1]    = 5
+         [[6], CROT],                   # ['CROT', 2]            = 6
+         [[7], swap(CROT)] ]            # ['CROT', 1]            = 7
 
-#generate set contains all possible primitive gates with following Zv in the circuit(4 possibilities each). 8*4=32 elements.
+# generate set contains all possible primitive gates with following Zv in the circuit(4 possibilities each). 8*4=32 elements.
 Prim_Zv = []
 for i in range(8):
     if i%2==0:

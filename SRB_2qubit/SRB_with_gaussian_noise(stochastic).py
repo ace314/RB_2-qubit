@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 import multiprocessing as mp
 
-# random.seed(30)
+random.seed(50)
 
 Ez = 3.933e10
 dEz = 1.326e7
@@ -165,7 +165,7 @@ def pulse_generate(k, T, w, p, delta, noise_std, QUASI_STATIC, sig=1):  # k: ind
     return M
 
 def phase_rec(k, p):
-    p_err = 0.031675 * np.pi    # TODO: More precise crosstalk error can be modified here
+    p_err = 0.03167654250993053 * np.pi    # TODO: More precise crosstalk error can be modified here
     if k == 0:      # 1u
         p[1] += p_err
         p[3] -= p_err
@@ -178,6 +178,20 @@ def phase_rec(k, p):
     elif k == 3:    # 2d
         p[0] -= p_err
         p[1] += p_err
+
+def v_z(k, p):
+    if math.floor(k / 11):  # key = 11, 12, 13
+        phase = (k - 10) * np.pi / 4
+        p[0] += phase
+        p[1] -= phase
+        p[2] += phase
+        p[3] -= phase
+    else:                   # key = 8, 9, 10
+        phase = (k - 7) * np.pi / 4
+        p[0] += phase
+        p[1] += phase
+        p[2] -= phase
+        p[3] -= phase
 
 def get_gates(p_l, prim_key, w=Ω, delta=1001, T=T_pi_2, noise_std=[0, 0, 0, 0], QUASI_STATIC=True):
     if prim_key < 8:
@@ -221,10 +235,10 @@ def get_gates(p_l, prim_key, w=Ω, delta=1001, T=T_pi_2, noise_std=[0, 0, 0, 0],
             phase_rec(1, p_l)
             B = pulse_generate(1, T, w, p_l, delta, noise_std, QUASI_STATIC, -1)
             phase_rec(1, p_l)
-        # print(prim_key, p_l)
-        return np.dot(A, B)
+        return np.dot(B, A)
     else:
-        return Prim_perfect[prim_key]
+        v_z(prim_key, p_l)
+        return np.identity(4)
 
 
 # for i in range(14):
@@ -251,7 +265,7 @@ def get_s(g1, phi):  # given a Cliff list then return experimental composition g
         array = g1[i]   # decomposition of i-th Cliff
         for j in reversed(range(len(array))):
             a = get_gates(phi, array[j], noise_std=[std_uu, std_ud, std_du, std_dd])
-            print_phi = [x/0.031675/np.pi for x in phi]
+            print_phi = [x / 0.03167654250993053 / np.pi for x in phi]
             print(print_phi)
             p = a @ p
     return p
@@ -274,7 +288,7 @@ def get_nonperfect_unitary(seq, phi):  # Get perfect gate from decomposition inf
     p = np.identity(4)
     for i in reversed(range(len(seq))):
         a = get_gates(phi, seq[i], noise_std=[std_uu, std_ud, std_du, std_dd])
-        print_phi = [x / 0.031675 / np.pi for x in phi]
+        print_phi = [x / 0.03167654250993053 / np.pi for x in phi]
         print(print_phi)
         p = a @ p
     return p
@@ -299,26 +313,24 @@ def RB_single_seq(L, repetition=125, ini_error=[0, 0, 0], rd_error=[0, 0, 0]):
         B = c_m(list, phase)
         # print(phase)
         seq_k = B @ A  # k_th
-        print(fidelity(np.identity(4), seq_k))
 
         final_state = seq_k @ initial @ seq_k.conj().T
         proj_measure = error_initial_state(rd_error[0], rd_error[1], rd_error[2])
-        final_prob = np.trace(proj_measure @ final_state)
+        final_prob = abs(np.trace(proj_measure @ final_state))
         print(final_prob)
-        uu_count = [1, 0]
-        a = random.choices(uu_count, weights=[final_prob, 1-final_prob], k=1)
-        num_uu = num_uu + a[0]
+        # uu_count = [1, 0]
+        # a = random.choices(uu_count, weights=[final_prob, 1-final_prob], k=1)
+        # num_uu = num_uu + a[0]
+        num_uu += final_prob
     return num_uu / repetition
 
 
-
-#define the gate length series chosen to run RB protocol
+# define the gate length series chosen to run RB protocol
 l1 = np.arange(1, 20, 1)
 l2 = np.arange(20, 40, 2)
 l3 = np.arange(40, 65, 5)
 # x = np.hstack((l1, l2, l3))
-x = [2]
-
+x = [10]
 
 y = []
 yerr = []
@@ -327,7 +339,7 @@ yerr = []
 K = 1  # choices of S sequence 相同長度 重複取k次不同seq(等同K_L參數)
 s_re = 1  # repeated times for each sequence
 c = 0
-initial_error = [0, 0, 0]   #[e_ud, e_du, e_dd]
+initial_error = [0, 0, 0]   # [e_ud, e_du, e_dd]
 readout_error = [0, 0, 0]
 
 def RB_loop(L):
@@ -339,9 +351,10 @@ if __name__ == '__main__':
     for m in x:
         a = [m]*K
         pool = mp.Pool()
-        res = pool.map(RB_loop, a)  # RB rep)
+        res = pool.map(RB_loop, a)  # RB rep
         y.append(np.mean(res))
         yerr.append(np.std(res))
+        print(np.std(res))
     pool.close()
     pool.join()
 
@@ -366,7 +379,8 @@ if __name__ == '__main__':
     #     return  * (1 - 4/3*0.053)**x + 0.25
 
     popt, pcov = curve_fit(func, x, y, p0=[1, 0, 0], bounds=(0, 1), maxfev=5000)
-    # p0 is the guess of the parameters. Guess B ~ 0 (ideally be 0.25) and r ~ 0 (no noise model now so r should be ultra low)
+    # p0 is the guess of the parameters.
+    # Guess B ~ 0 (ideally be 0.25) and r ~ 0 (no noise model now so r should be ultra low)
     print("F_Ciff = 1 - r = ", 1 - popt[2])
     print("A = ", popt[0])
     print("B = ", popt[1])
