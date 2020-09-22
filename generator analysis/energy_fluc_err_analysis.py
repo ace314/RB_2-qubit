@@ -54,23 +54,92 @@ plt.show()
 '''
 
 # Clifford average fidelity
-
+'''
 noise_std = [std_uu, std_ud, std_du, std_dd]
 N = len(Cliff_decompose)
+p_rec = [0, 0, 0, 0]
 
 for i in range(N):
     p_rec = [0, 0, 0, 0]
     state = error_initial_state(0, 0, 0)
-    g_exp = get_seq([Cliff_decompose[i]], [0, 0, 0, 0], noise_std=noise_std, noise_type=QUASI_STATIC)
+    g_exp = get_seq([Cliff_decompose[i]], p_rec, noise_std=noise_std, noise_type=QUASI_STATIC)
+    # g_exp = get_perfect_seq([Cliff_decompose[i]])
     state = g_exp @ state @ g_exp.conj().T
 
-    initial_state = error_initial_state(0, 0, 0)
-    g_pft = get_perfect_seq([Cliff_decompose[i]])
-    initial_state = g_pft @ initial_state @ g_pft.conj().T
+    initial_state = np.array([1, 0, 0, 0])
+    g_pf = get_perfect_seq([Cliff_decompose[i]])
+    initial_state = g_pf @ initial_state.T
 
-    f = np.real(prob_fidelity(state, initial_state))
+    # print(abs(state))
+    # print(abs(initial_state))
+    f = np.real(prob_fidelity(abs(state), abs(initial_state), r2_pure=True))
     print(i, f)
-    F += f/N
+    F += f
 
-print(F)
+print(F/N)
+'''
 
+
+# one-qubit model testing
+
+# simple X rotation Hamiltonian with Gaussian Z noise.
+def h_1q(a, std):
+    h = 1/2*2*np.pi*a*np.array([[0, 1], [1, 0]])
+    np.random.seed()
+    h_err = 2*np.pi*np.array([[np.random.normal(0.0, std[0]), 0], [0, -np.random.normal(0.0, std[0])]])
+    return h + h_err
+
+# X-2pi rotation
+def x_2pi_1q(a=Omega, delta=4001, t_total=4*T_pi_2, noise_std=None):
+    if noise_std is None:
+        noise_std = [0, 0]
+    gate = np.identity(2)
+    t_slice = np.linspace(0, t_total, delta + 1)
+    h = h_1q(a, noise_std)
+    for t in t_slice[1:]:
+        gate = np.dot(expm(-1j * h * t_slice[1]), gate)
+    return gate
+
+
+c = 0
+n = 100
+x = []
+y = []
+perfect_state = np.array([1, 0]).T
+
+for m in [1]:
+    std0 = 21000 * m
+    std1 = 21000 * m
+    noise = [std0, std1]
+    while c < n:
+        state = np.array([[1, 0], [0, 0]])
+        g1 = x_2pi_1q(noise_std=noise)
+        # g2 = x_2pi_1q(noise_std=noise)
+        # g3 = x_2pi_1q(noise_std=noise)
+        # g4 = x_2pi_1q(noise_std=noise)
+        # g5 = x_2pi_1q(noise_std=noise)
+        g1 = g1 @ g1 @ g1 @ g1 @ g1
+        state = g1 @ state @ g1.conj().T
+        f = np.real(prob_fidelity(abs(state), abs(perfect_state), r2_pure=True))
+        F += f/n
+        c += 1
+    print(m, ";", F)
+    x.append(m)
+    y.append(F)
+    F = 0
+    c = 0
+
+f1 = open('x_1q.pkl', 'wb')
+pickle.dump(x, f1)
+f1.close()
+
+f2 = open('y_1q.pkl', 'wb')
+pickle.dump(y, f2)
+f2.close()
+
+plt.plot(x, y, 'bo')
+plt.ylim(top=1.0)
+plt.xlabel("Noise multiplier")
+plt.ylabel("Fidelity")
+plt.title("Energy Fluctuation Noise Strength Analysis")
+plt.show()

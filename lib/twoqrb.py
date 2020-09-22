@@ -24,11 +24,15 @@ Basic 2 qubit gate operations
 def gate_fidelity(m_exp, m):
     return np.absolute(np.trace(np.dot(m_exp.conj().T, m)))/4
 
-# fidelity of two probability distribution (two density matrices)
-def prob_fidelity(r1, r2):
-    a = sqrtm(r1)
-    b = sqrtm(a @ r2 @ a)
-    return np.trace(b)
+# fidelity of two probability distribution [two density matrices (r2_pure=False) or r2 is a state vector(r2_pure=True)]
+# From "Quantum Computation and Quantum Information" eqn.(9.53) & (9.60)
+def prob_fidelity(r1, r2, r2_pure=False):
+    if r2_pure:
+        return np.sqrt(r2.conj().T @ r1 @ r2)
+    else:
+        a = sqrtm(r1)
+        b = sqrtm(np.dot(a, np.dot(r2, a)))
+        return np.trace(b)
 
 # check whether two gates m1 and m2 are the same
 def is_inverse(m1, m2):
@@ -84,16 +88,16 @@ f2.close()
 # seq: list of Cliff's expressed as prim_key lists (so it's a 2D array - list of prim_key lists.)
 # p: current phase record (based on applied pulses) ;
 # delta: total time slice ;
-# noise_std: an 4-elements array with Gaussian energy fluctuation standard deviations for 4 states ;
+# noise: an 4-elements array with fluctuations for 4 states ;
 # noise_type: QUASI_STATIC or STOCHASTIC ;
 
 # given a single Cliff element decomposition keys then return experimental gate of the Cliff element
-def get_cliff(keys, p, delta=1001, noise_std=None, noise_type=QUASI_STATIC):
-    if noise_std is None:
-        noise_std = [0, 0, 0, 0]
+def get_cliff(keys, p, delta=1001, noise=None, noise_type=QUASI_STATIC):
+    if noise is None:
+        noise = [0, 0, 0, 0]
     g_exp = np.identity(4)
     for i in reversed(range(len(keys))):
-        a = get_gates(p, keys[i], delta=delta, noise_std=noise_std, noise_type=noise_type)
+        a = get_gates(p, keys[i], delta=delta, noise=noise, noise_type=noise_type)
         g_exp = a @ g_exp
     return g_exp
 
@@ -105,11 +109,11 @@ def get_perfect_cliff(keys):
     return g_pf
 
 # given a Cliff decomposition sequence then return experimental combining gate of all the Cliff elements
-def get_seq(seq, p, delta=1001, noise_std=None, noise_type=QUASI_STATIC):
+def get_seq(seq, p, delta=1001, noise=None, noise_type=QUASI_STATIC):
     g = np.identity(4)
     for i in range(len(seq)):
         keys = seq[i]   # decomposition of i-th Cliff
-        a = get_cliff(keys, p, delta=delta, noise_std=noise_std, noise_type=noise_type)
+        a = get_cliff(keys, p, delta=delta, noise=noise, noise_type=noise_type)
         g = a @ g
     return g
 
@@ -122,10 +126,11 @@ def get_perfect_seq(seq):
         g = a @ g
     return g
 
-# given Cliff sequence , return its experimental inverse gate
-def get_seq_inverse(seq, p, delta=1001, noise_std=None, noise_type=QUASI_STATIC):
+# given Cliff sequence, return its experimental inverse gate
+def get_seq_inverse(seq, p, delta=1001, noise=None, noise_type=QUASI_STATIC):
     a = get_perfect_seq(seq)
     for i in range(len(Cliff_decompose)):
         b = get_perfect_cliff(Cliff_decompose[i])
         if is_inverse(b, a):
-            return get_cliff(Cliff_decompose[i], p, delta=delta, noise_std=noise_std, noise_type=noise_type)
+            return get_cliff(Cliff_decompose[i], p, delta=delta, noise=noise, noise_type=noise_type)
+

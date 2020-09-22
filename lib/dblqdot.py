@@ -106,13 +106,12 @@ External error model
 '''
 
 # Energy fluctuation error (Gaussian fluctuations on diagonal elements)
-# std_uu/ud/du/dd: standard deviation for Gaussian fluctuations on uu/ud/du/dd state
-def dh_e(std_uu, std_ud, std_du, std_dd):
-    np.random.seed()
-    return 2*np.pi*np.array([[np.random.normal(0.0, std_uu), 0, 0, 0],
-                             [0, np.random.normal(0.0, std_ud), 0, 0],
-                             [0, 0, np.random.normal(0.0, std_du), 0],
-                             [0, 0, 0, np.random.normal(0.0, std_dd)]])
+# df_uu/ud/du/dd: fluctuations on uu/ud/du/dd state
+def dh_e(df_uu, df_ud, df_du, df_dd):
+    return 2*np.pi*np.array([[df_uu, 0, 0, 0],
+                             [0, df_ud, 0, 0],
+                             [0, 0, df_du, 0],
+                             [0, 0, 0, df_dd]])
 
 
 '''
@@ -120,20 +119,20 @@ ESR pulses and primitive gates
 '''
 
 # combine perfect and cross error
-def h_rwa_1d(a, t, p, noise_std):
-    return h_rwa1_1d(a, p) + h_rwa2_1d(a, t, p) + dh_e(noise_std[0], noise_std[1], noise_std[2], noise_std[3])
+def h_rwa_1d(a, t, p, noise):
+    return h_rwa1_1d(a, p) + h_rwa2_1d(a, t, p) + dh_e(noise[0], noise[1], noise[2], noise[3])
 
 
-def h_rwa_1u(a, t, p, noise_std):
-    return h_rwa1_1u(a, p) + h_rwa2_1u(a, t, p) + dh_e(noise_std[0], noise_std[1], noise_std[2], noise_std[3])
+def h_rwa_1u(a, t, p, noise):
+    return h_rwa1_1u(a, p) + h_rwa2_1u(a, t, p) + dh_e(noise[0], noise[1], noise[2], noise[3])
 
 
-def h_rwa_2d(a, t, p, noise_std):
-    return h_rwa1_2d(a, p) + h_rwa2_2d(a, t, p) + dh_e(noise_std[0], noise_std[1], noise_std[2], noise_std[3])
+def h_rwa_2d(a, t, p, noise):
+    return h_rwa1_2d(a, p) + h_rwa2_2d(a, t, p) + dh_e(noise[0], noise[1], noise[2], noise[3])
 
 
-def h_rwa_2u(a, t, p, noise_std):
-    return h_rwa1_2u(a, p) + h_rwa2_2u(a, t, p) + dh_e(noise_std[0], noise_std[1], noise_std[2], noise_std[3])
+def h_rwa_2u(a, t, p, noise):
+    return h_rwa1_2u(a, p) + h_rwa2_2u(a, t, p) + dh_e(noise[0], noise[1], noise[2], noise[3])
 
 # generate microwave pulse according to given index and noise type
 # k: pulse index (0/1/2/3 for ESR frequency f_1u/f_1d/f_2u/f_2d)
@@ -141,15 +140,15 @@ def h_rwa_2u(a, t, p, noise_std):
 # a: amplitude ;
 # p: current phase record (based on applied pulses) ;
 # delta: total time slice ;
-# noise_std: an 4-elements array with Gaussian energy fluctuation standard deviations for 4 states ;
+# noise: an 4-elements array with fluctuations for 4 states ;
 # noise_type: QUASI_STATIC or STOCHASTIC ;
 # sgn: sign for exponential propagator. pi/2 (sgn=1) or -pi/2 (sgn=-1) pulse.
 # -pi/2 pulse can be realized in experiment by adding a pi phase to ESR field.
-def pulse_generate(k, t_total, a, p, delta, noise_std, noise_type=QUASI_STATIC, sgn=1):
+def pulse_generate(k, t_total, a, p, delta, noise, noise_type=QUASI_STATIC, sgn=1):
     t_slice = np.linspace(0, t_total, delta+1)
     m = np.identity(4)
     if noise_type:    # quasi-static noise
-        dh_static = dh_e(noise_std[0], noise_std[1], noise_std[2], noise_std[3])
+        dh_static = dh_e(noise[0], noise[1], noise[2], noise[3])
         if k == 0:
             for t in t_slice[1:]:
                 h = h_rwa1_1u(a, p[2] - p[0]) + h_rwa2_1u(a, t - (t_slice[1] / 2), p[2] - p[0]) + dh_static
@@ -169,16 +168,16 @@ def pulse_generate(k, t_total, a, p, delta, noise_std, noise_type=QUASI_STATIC, 
     else:   # stochastic noise
         if k == 0:
             for t in t_slice[1:]:
-                m = np.dot(expm(-1j * sgn * h_rwa_1u(a, t - (t_slice[1] / 2), p[2] - p[0], noise_std) * t_slice[1]), m)
+                m = np.dot(expm(-1j * sgn * h_rwa_1u(a, t - (t_slice[1] / 2), p[2] - p[0], noise) * t_slice[1]), m)
         elif k == 1:
             for t in t_slice[1:]:
-                m = np.dot(expm(-1j * sgn * h_rwa_1d(a, t - (t_slice[1] / 2), p[3] - p[1], noise_std) * t_slice[1]), m)
+                m = np.dot(expm(-1j * sgn * h_rwa_1d(a, t - (t_slice[1] / 2), p[3] - p[1], noise) * t_slice[1]), m)
         elif k == 2:
             for t in t_slice[1:]:
-                m = np.dot(expm(-1j * sgn * h_rwa_2u(a, t - (t_slice[1] / 2), p[1] - p[0], noise_std) * t_slice[1]), m)
+                m = np.dot(expm(-1j * sgn * h_rwa_2u(a, t - (t_slice[1] / 2), p[1] - p[0], noise) * t_slice[1]), m)
         elif k == 3:
             for t in t_slice[1:]:
-                m = np.dot(expm(-1j * sgn * h_rwa_2d(a, t - (t_slice[1] / 2), p[3] - p[2], noise_std) * t_slice[1]), m)
+                m = np.dot(expm(-1j * sgn * h_rwa_2d(a, t - (t_slice[1] / 2), p[3] - p[2], noise) * t_slice[1]), m)
     return m
 
 # phase record for crosstalk error correction algorithm
@@ -228,51 +227,51 @@ def v_z(k, p):
 # 'Zv(pi/2)' on Q2        = 11
 # 'Zv(pi)' on Q2          = 12
 # 'Zv(3pi/2)' on Q2       = 13
-def get_gates(p, prim_key, a=Omega, delta=1001, t_total=T_pi_2, noise_std=None, noise_type=QUASI_STATIC):
-    if noise_std is None:
-        noise_std = [0, 0, 0, 0]
+def get_gates(p, prim_key, a=Omega, delta=1001, t_total=T_pi_2, noise=None, noise_type=QUASI_STATIC):
+    if noise is None:
+        noise = [0, 0, 0, 0]
     if prim_key < 8:
         m1 = np.identity(4)
         m2 = np.identity(4)
         if prim_key == 0:
-            m1 = pulse_generate(2, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m1 = pulse_generate(2, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(2, p)
-            m2 = pulse_generate(3, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m2 = pulse_generate(3, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(3, p)
         elif prim_key == 1:
-            m1 = pulse_generate(0, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m1 = pulse_generate(0, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(0, p)
-            m2 = pulse_generate(1, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m2 = pulse_generate(1, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(1, p)
         elif prim_key == 2:
-            m1 = pulse_generate(2, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m1 = pulse_generate(2, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(2, p)
-            m2 = pulse_generate(3, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=-1)
+            m2 = pulse_generate(3, t_total, a, p, delta, noise, noise_type=noise_type, sgn=-1)
             phase_rec(3, p)
         elif prim_key == 3:
-            m1 = pulse_generate(0, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m1 = pulse_generate(0, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(0, p)
-            m2 = pulse_generate(1, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=-1)
+            m2 = pulse_generate(1, t_total, a, p, delta, noise, noise_type=noise_type, sgn=-1)
             phase_rec(1, p)
         elif prim_key == 4:
-            m1 = pulse_generate(2, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m1 = pulse_generate(2, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(2, p)
-            m2 = pulse_generate(2, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m2 = pulse_generate(2, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(2, p)
         elif prim_key == 5:
-            m1 = pulse_generate(0, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m1 = pulse_generate(0, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(0, p)
-            m2 = pulse_generate(0, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=1)
+            m2 = pulse_generate(0, t_total, a, p, delta, noise, noise_type=noise_type, sgn=1)
             phase_rec(0, p)
         elif prim_key == 6:
-            m1 = pulse_generate(3, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=-1)
+            m1 = pulse_generate(3, t_total, a, p, delta, noise, noise_type=noise_type, sgn=-1)
             phase_rec(3, p)
-            m2 = pulse_generate(3, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=-1)
+            m2 = pulse_generate(3, t_total, a, p, delta, noise, noise_type=noise_type, sgn=-1)
             phase_rec(3, p)
         elif prim_key == 7:
-            m1 = pulse_generate(1, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=-1)
+            m1 = pulse_generate(1, t_total, a, p, delta, noise, noise_type=noise_type, sgn=-1)
             phase_rec(1, p)
-            m2 = pulse_generate(1, t_total, a, p, delta, noise_std, noise_type=noise_type, sgn=-1)
+            m2 = pulse_generate(1, t_total, a, p, delta, noise, noise_type=noise_type, sgn=-1)
             phase_rec(1, p)
         return np.dot(m2, m1)
     else:
