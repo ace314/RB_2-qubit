@@ -10,9 +10,9 @@ import multiprocessing as mp
 from lib.twoqrb import *
 
 # stochastic noise deviation
-std_uu = 16100
-std_ud = 10100
-std_du = 21000
+std_uu = 20000
+std_ud = 20000
+std_du = 20000
 std_dd = 0
 
 # std_uu = 0
@@ -30,14 +30,14 @@ def RB_single_seq(L, repetition=125, ini_error=None, rd_error=None):
         # energy fluctuation noise is quasi-static with timescale of single measurement (single sequence).
         noise = [np.random.normal(0.0, std_uu), np.random.normal(0.0, std_ud),
                  np.random.normal(0.0, std_du), np.random.normal(0.0, std_dd)]
-        g1 = get_seq(cliff_seq, phase, noise=noise, noise_type=QUASI_STATIC, crosstalk=True)
-        g2 = get_seq_inverse(cliff_seq, phase, noise=noise, noise_type=QUASI_STATIC, crosstalk=True)
+        g1 = get_seq(cliff_seq, phase, noise=noise, noise_type=QUASI_STATIC, crosstalk=False)
+        g2 = get_seq_inverse(cliff_seq, phase, noise=noise, noise_type=QUASI_STATIC, crosstalk=False)
         seq_k = g2 @ g1  # k_th
 
         final_state = seq_k @ initial @ seq_k.conj().T
         proj_measure = error_initial_state(rd_error[0], rd_error[1], rd_error[2])
         final_prob = abs(np.trace(proj_measure @ final_state))
-        print(final_prob)
+        # print(final_prob)
         # uu_count = [1, 0]
         # a = random.choices(uu_count, weights=[final_prob, 1-final_prob], k=1)
         # num_uu = num_uu + a[0]
@@ -56,13 +56,12 @@ y = []
 yerr = []
 
 # N = 2  # samples for each Cliff_decompose point (算標準差即是使用每個data point對應的N個數據)
-K = 1  # choices of S sequence 相同長度 重複取k次不同seq(等同K_L參數)
-s_re = 1  # repeated times for each sequence
+K = 51  # choices of S sequence 相同長度 重複取k次不同seq(等同K_L參數)
+s_re = 125  # repeated times for each sequence
 initial_error = [0, 0, 0]   # [e_ud, e_du, e_dd]
 readout_error = [0, 0, 0]
 
 def RB_loop(L):
-    print(L)
     return RB_single_seq(L, repetition=s_re, ini_error=initial_error, rd_error=readout_error)
 
 
@@ -73,6 +72,8 @@ if __name__ == '__main__':
         res = pool.map(RB_loop, a)  # RB rep
         y.append(np.mean(res))
         yerr.append(np.std(res))
+        print("L = ", m, " is done.")
+        print("F = ", np.mean(res), "; std dev = ", np.std(res))
         # print(np.std(res))
     pool.close()
     pool.join()

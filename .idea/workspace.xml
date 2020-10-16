@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="d70837f3-f2df-469d-865e-32745c819d82" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SRB_2qubit/2q_RB_simu_y.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/SRB_2qubit/2q_RB_simu_y.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SRB_2qubit/Cliff_indices_4.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SRB_2qubit/Prim_perfect.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(quasi-static).py" beforeDir="false" afterPath="$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(quasi-static).py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/generator analysis/energy_fluc_err_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/generator analysis/energy_fluc_err_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator analysis/x_1q.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/generator analysis/x_1q.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/generator analysis/y_1q.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/generator analysis/y_1q.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/dblqdot.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/dblqdot.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/twoqrb.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/twoqrb.py" afterDir="false" />
     </list>
@@ -46,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator analysis/energy_fluc_err_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="116" selection-start-line="116" selection-end-line="119" selection-end-column="40" />
+            <state relative-caret-position="1568">
+              <caret line="99" column="27" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -55,14 +61,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(quasi-static).py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="29" column="106" selection-start-line="29" selection-start-column="106" selection-end-line="29" selection-end-column="106" />
-              <folding>
-                <element signature="e#74#87#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="135">
+              <caret line="101" column="91" selection-start-line="101" selection-start-column="91" selection-end-line="101" selection-end-column="91" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RB_nocrosstalk/gaussian_noise(quasi-static).py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -70,8 +82,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/twoqrb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+            <state relative-caret-position="-263">
+              <caret line="100" column="17" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
               <folding>
                 <element signature="e#106#119#0" expanded="true" />
               </folding>
@@ -79,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/dblqdot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
+            <state relative-caret-position="272">
+              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -114,8 +126,8 @@
       <find>data</find>
       <find>phi</find>
       <find>noise_std</find>
-      <find>print</find>
       <find>std</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>a,</replace>
@@ -172,15 +184,17 @@
         <option value="$PROJECT_DIR$/generator analysis/energy_fluc_err_analysis.py" />
         <option value="$PROJECT_DIR$/lib/twoqrb.py" />
         <option value="$PROJECT_DIR$/lib/dblqdot.py" />
+        <option value="$PROJECT_DIR$/RB_no_crosstalk/gaussian_noise(quasi-static).py" />
+        <option value="$PROJECT_DIR$/SRB_2qubit/RB_nocrosstalk/gaussian_noise(quasi-static).py" />
         <option value="$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(quasi-static).py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="240" />
-    <option name="y" value="128" />
+    <option name="y" value="125" />
     <option name="width" value="1440" />
-    <option name="height" value="773" />
+    <option name="height" value="775" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -190,18 +204,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="RB_2-qubit" type="b2602c69:ProjectViewProjectNode" />
               <item name="RB_2-qubit" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RB_2-qubit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RB_2-qubit" type="462c0819:PsiDirectoryNode" />
-              <item name="generator analysis" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RB_2-qubit" type="b2602c69:ProjectViewProjectNode" />
@@ -217,6 +225,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -251,7 +260,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.SRB_with_gaussian_noise(quasi-static)">
+  <component name="RunManager" selected="Python.gaussian_noise(quasi-static) (2)">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -298,25 +307,6 @@
       <module name="2-qubit" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SRB_2qubit" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(quasi-static).py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SRB_with_gaussian_noise(stochastic)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="2-qubit" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
@@ -326,7 +316,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(stochastic).py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(quasi-static).py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -379,7 +369,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="phase_offset_compensate" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="gaussian_noise(quasi-static) (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="2-qubit" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -387,12 +377,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/generator analysis" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SRB_2qubit/RB_nocrosstalk" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/generator analysis/phase_offset_compensate.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SRB_2qubit/RB_nocrosstalk/gaussian_noise(quasi-static).py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -401,7 +391,26 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="twoqrb" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="gaussian_noise(quasi-static) (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="2-qubit" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RB_nocrosstalk" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RB_nocrosstalk/gaussian_noise(quasi-static).py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="gaussian_noise(quasi-static)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="2-qubit" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -409,12 +418,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/lib" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/RB_no_crosstalk" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lib/twoqrb.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RB_no_crosstalk/gaussian_noise(quasi-static).py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -434,19 +443,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.Cliff2_pickle" />
-      <item itemvalue="Python.phase_offset_compensate" />
-      <item itemvalue="Python.SRB_with_gaussian_noise(stochastic)" />
-      <item itemvalue="Python.twoqrb" />
       <item itemvalue="Python.energy_fluc_err_analysis" />
       <item itemvalue="Python.SRB_with_gaussian_noise(quasi-static)" />
+      <item itemvalue="Python.gaussian_noise(quasi-static)" />
+      <item itemvalue="Python.gaussian_noise(quasi-static) (1)" />
+      <item itemvalue="Python.gaussian_noise(quasi-static) (2)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.SRB_with_gaussian_noise(quasi-static)" />
+        <item itemvalue="Python.gaussian_noise(quasi-static) (2)" />
+        <item itemvalue="Python.gaussian_noise(quasi-static) (1)" />
+        <item itemvalue="Python.gaussian_noise(quasi-static)" />
         <item itemvalue="Python.energy_fluc_err_analysis" />
-        <item itemvalue="Python.twoqrb" />
-        <item itemvalue="Python.SRB_with_gaussian_noise(stochastic)" />
-        <item itemvalue="Python.phase_offset_compensate" />
+        <item itemvalue="Python.SRB_with_gaussian_noise(quasi-static)" />
       </list>
     </recent_temporary>
   </component>
@@ -556,12 +565,26 @@
       <workItem from="1599622449995" duration="607000" />
       <workItem from="1599667765805" duration="608000" />
       <workItem from="1600525321321" duration="8552000" />
-      <workItem from="1600752026192" duration="5370000" />
+      <workItem from="1600752026192" duration="9195000" />
+      <workItem from="1600823219919" duration="74000" />
+      <workItem from="1601434652864" duration="163000" />
+      <workItem from="1602517386188" duration="1807000" />
+      <workItem from="1602570235844" duration="3799000" />
+      <workItem from="1602611553493" duration="4345000" />
+      <workItem from="1602661212618" duration="761000" />
+      <workItem from="1602777600092" duration="4245000" />
+      <workItem from="1602816468913" duration="533000" />
+      <workItem from="1602817349605" duration="86000" />
+      <workItem from="1602817679676" duration="183000" />
+      <workItem from="1602817981731" duration="1185000" />
+      <workItem from="1602826579830" duration="87000" />
+      <workItem from="1602826738232" duration="312000" />
+      <workItem from="1602827069861" duration="1184000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="339937000" />
+    <option name="totallyTimeSpent" value="362526000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -576,7 +599,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16554959" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24262735" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -589,14 +612,14 @@
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4804772" weight="0.4815864" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.78272533" weight="0.3394794" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.23134328" side_tool="true" weight="0.49566162" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.76865673" visible="true" weight="0.27903682" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="10" sideWeight="0.76865673" visible="true" weight="0.30736545" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" weight="0.32995737" />
-      <window_info anchor="right" id="SciView" order="4" sideWeight="0.8184569" visible="true" weight="0.18230563" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.8184569" visible="true" weight="0.13270777" />
       <window_info anchor="right" x="0" y="0" width="337" height="638" id="Documentation" order="5" sideWeight="0.18154311" side_tool="true" weight="0.54371" />
     </layout>
   </component>
@@ -621,9 +644,6 @@
     <SUITE FILE_PATH="coverage/RB_2_qubit$energy_fluc_err_analysis.coverage" NAME="energy_fluc_err_analysis Coverage Results" MODIFIED="1597070015317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/generator analysis" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/find_inverse.py" />
-    <entry file="file://$PROJECT_DIR$/plot.py" />
-    <entry file="file://$PROJECT_DIR$/sad.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -782,26 +802,6 @@
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/lib2to3/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator analysis/generator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1600">
-          <caret line="100" selection-start-line="100" selection-end-line="101" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generator analysis/phase_offset_compensate.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
@@ -846,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(stochastic).py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-192">
-          <caret column="11" selection-start-column="11" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/generator analysis/dqdot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4128">
@@ -863,20 +856,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/generator analysis/Lab_frame_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator analysis/generator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" selection-start-line="18" selection-end-line="22" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(stochastic).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="13" lean-forward="true" selection-start-column="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RB_no_crosstalk/gaussian_noise(quasi-static).py" />
     <entry file="file://$PROJECT_DIR$/generator analysis/energy_fluc_err_analysis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="116" selection-start-line="116" selection-end-line="119" selection-end-column="40" />
+        <state relative-caret-position="1568">
+          <caret line="99" column="27" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SRB_2qubit/RB_nocrosstalk/gaussian_noise(quasi-static).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="63" column="15" selection-start-line="63" selection-start-column="15" selection-end-line="63" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(quasi-static).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="101" column="91" selection-start-line="101" selection-start-column="91" selection-end-line="101" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RB_nocrosstalk/gaussian_noise(quasi-static).py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="36" column="54" lean-forward="true" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/twoqrb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+        <state relative-caret-position="-263">
+          <caret line="100" column="17" selection-start-line="100" selection-start-column="17" selection-end-line="100" selection-end-column="17" />
           <folding>
             <element signature="e#106#119#0" expanded="true" />
           </folding>
@@ -885,18 +927,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/dblqdot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="114" lean-forward="true" selection-start-line="114" selection-end-line="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SRB_2qubit/SRB_with_gaussian_noise(quasi-static).py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="29" column="106" selection-start-line="29" selection-start-column="106" selection-end-line="29" selection-end-column="106" />
-          <folding>
-            <element signature="e#74#87#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
         </state>
       </provider>
     </entry>

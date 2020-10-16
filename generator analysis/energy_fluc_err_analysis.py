@@ -84,13 +84,13 @@ print(F/N)
 
 # simple X rotation Hamiltonian with Gaussian Z noise.
 def h_1q(a, std):
-    h = 1/2*2*np.pi*a*np.array([[0, 1], [1, 0]])
+    h = 1/2*2*np.pi*a*np.array([[1, 0], [0, -1]])
     np.random.seed()
-    h_err = 2*np.pi*np.array([[np.random.normal(0.0, std[0]), 0], [0, -np.random.normal(0.0, std[0])]])
+    h_err = 2*np.pi*np.random.normal(0.0, std[0])*np.array([[1, 0], [0, -1]])
     return h + h_err
 
 # X-2pi rotation
-def x_2pi_1q(a=Omega, delta=4001, t_total=4*T_pi_2, noise_std=None):
+def x_2pi_1q(a=Omega, delta=101, t_total=4*T_pi_2, noise_std=None):
     if noise_std is None:
         noise_std = [0, 0]
     gate = np.identity(2)
@@ -102,25 +102,26 @@ def x_2pi_1q(a=Omega, delta=4001, t_total=4*T_pi_2, noise_std=None):
 
 
 c = 0
-n = 100
+n = 500
 x = []
 y = []
 perfect_state = np.array([1, 0]).T
 
-for m in [1]:
+for m in range(11):
     std0 = 21000 * m
     std1 = 21000 * m
     noise = [std0, std1]
     while c < n:
-        state = np.array([[1, 0], [0, 0]])
+        # state = np.array([[1, 0], [0, 0]])
         g1 = x_2pi_1q(noise_std=noise)
         # g2 = x_2pi_1q(noise_std=noise)
         # g3 = x_2pi_1q(noise_std=noise)
         # g4 = x_2pi_1q(noise_std=noise)
         # g5 = x_2pi_1q(noise_std=noise)
-        g1 = g1 @ g1 @ g1 @ g1 @ g1
-        state = g1 @ state @ g1.conj().T
-        f = np.real(prob_fidelity(abs(state), abs(perfect_state), r2_pure=True))
+        # g1 = g1 @ g1 @ g1 @ g1 @ g1
+        # state = g1 @ state @ g1.conj().T
+        # f = np.real(prob_fidelity(abs(state), abs(perfect_state), r2_pure=True))
+        f = (np.absolute(np.trace(np.dot(g1.conj().T, np.identity(2)))))**2/4
         F += f/n
         c += 1
     print(m, ";", F)
